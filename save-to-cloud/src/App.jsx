@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import React from 'react';
 function App() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -7,6 +7,12 @@ function App() {
   const [message, setMessage] = useState('');
   const [dragOver, setDragOver] = useState(false);
   const fileInputRef = useRef(null);
+  const dummy = async () => {
+    const res = await fetch(import.meta.env.VITE_API);
+  }
+  useEffect(() => {
+      dummy();
+  } , [])
 
   const handleFileSelect = (event) => {
     const file = event.target.files[0];

@@ -7,6 +7,9 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.get("/" , (req , res) => {
+    return res.status(200);
+})
 app.post('/imageUpload' , upload , uploadFile , (req , res) => {
     return res.send({
         message : "Uploaded",
